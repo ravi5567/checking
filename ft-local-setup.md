@@ -118,26 +118,26 @@ Link for the Files -[Here](https://cisco-my.sharepoint.com/:f:/g/personal/raving
 Link for the Files -[Here](https://cisco-my.sharepoint.com/personal/ravingup_cisco_com1/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fravingup%5Fcisco%5Fcom1%2FDocuments%2FMobius%2FFT%20Setup%2FCertificate%20%2DCPAPI&ga=1)
 8. Go to your repo in termianl and do `pwd` and copy the path 
 9. Follow these changes </br>
-    <aside>
-    💡 You can replace `/Users/ravingup/Downloads/mobius-functional-tests/` with your `path`
-    </aside>
-  
-    1. Now go to `functional-stubs/cpapi-stub/src/main/java/com/ciscospark/mobius/cpapi/CpapiClientTestConfig.java` on line no 13
+
+      ####  **You can replace `/Users/ravingup/Downloads/mobius-functional-tests/` with your `path`**
+
+    1. Now go to `functional-stubs/cpapi-stub/src/main/java/com/ciscospark/mobius/cpapi/CpapiClientTestConfig.java` in line no 13
 
         ```java
         -@PropertySource({"file:cpapi-stub/src/main/resources/application.properties"})
         +@PropertySource({"file:/Users/ravingup/Downloads/mobius-functional-tests/functional-stubs/cpapi-stub/src/main/resources/application.properties"})
         ```
         
-    2. Go to  `functional-stubs/cpapi-stub/src/main/java/com/ciscospark/mobius/cpapi/TestNgApp.java` on line no  14
+    2. Go to  `functional-stubs/cpapi-stub/src/main/java/com/ciscospark/mobius/cpapi/TestNgApp.java` in line no  14
 
         ```java
         -        Path path = Paths.get("./cpapi-stub/src/main/resources/testng.xml");
         +        Path path = Paths.get("/Users/ravingup/Downloads/mobius-functional-tests/functional-stubs/cpapi-stub/src/main/resources/testng.xml");
         ```
         
-    3. Go to `functional-stubs/cpapi-stub/src/main/resources/application.properties` </br>
-       </br>Line no  3
+    3. Go to `functional-stubs/cpapi-stub/src/main/resources/application.properties`
+
+        Line no  3
 
         ```java
         -pingUrl = http://webrtc-mobius-j2.cisco.com:8080/api/v1/ping
@@ -145,14 +145,14 @@ Link for the Files -[Here](https://cisco-my.sharepoint.com/personal/ravingup_cis
         ```
         where `[http://localhost:8080/war_war](http://localhost:8080/war_war)` is same as you use in your tomcat URL
 
-        </br>Line no 13
+        Line no 13
         
         ```java
         -jsonFileLocation = /cpapi-stub/src/main/resources
         +jsonFileLocation = functional-stubs/cpapi-stub/src/main/resources
         ```
         
-    4. Go to `functional-stubs/sse/common-sip-pkts/src/main/java/com/cisco/edge/v2/sip/endpoint/AbstractSipEndpoint.java` on line no 173
+    4. Go to `functional-stubs/sse/common-sip-pkts/src/main/java/com/cisco/edge/v2/sip/endpoint/AbstractSipEndpoint.java` in line no 173
 
         ```java
         -                remoteConnection.getLocalIpAddress(), remoteConnection.getLocalPort()));
@@ -161,7 +161,7 @@ Link for the Files -[Here](https://cisco-my.sharepoint.com/personal/ravingup_cis
         
     5. Go to `functional-stubs/sse/sse-infra/src/main/java/com/cisco/edge/sbctest/v2/sip/endpoint/CoreEndpoint.java` 
     
-       </br>Line no  53
+       Line no  53
 
         ```java
         -      Path path = Paths.get("functional-stubs/sse/sse-infra/src/main/resources/certs/server.crt").toAbsolutePath();
@@ -182,7 +182,7 @@ Link for the Files -[Here](https://cisco-my.sharepoint.com/personal/ravingup_cis
         +      path = Paths.get("/Users/ravingup/Downloads/mobius-functional-tests/functional-stubs/sse/sse-infra/src/main/resources/certs/MobiusRootCA.crt").toAbsolutePath();
         ```
         
-    6.  go to `functional-tests/src/main/java/com/ciscospark/mobius/ft/MobiusClientTestConfig.java` on line no  27
+    6.  go to `functional-tests/src/main/java/com/ciscospark/mobius/ft/MobiusClientTestConfig.java` in line no  27
 
         ```java
         -@PropertySource({"file:functional-tests/src/main/resources/application.properties"})
@@ -191,13 +191,13 @@ Link for the Files -[Here](https://cisco-my.sharepoint.com/personal/ravingup_cis
         
     7. Go to `functional-tests/src/main/resources/application.properties` 
     
-       </br>Line no  18
+        Line no  18
 
         ```java
         -mobiusUrl=http://webrtc-mobius-j2.cisco.com:8080/api/v1/calling/web
         +mobiusUrl=http://localhost:8080/war_war/api/v1/calling/web
         ```
-        line no 30
+        Line no 30
         
         ```java
         -FT_USER_1_EMAIL=atlas.test.wxcwebrtc+ft1@gmail.com
